@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amplia Finanças — Seu dinheiro explicado no WhatsApp</title>
+  <meta name="description" content="Amplia Finanças é um assistente financeiro pelo WhatsApp que registra gastos, receitas, comprovantes, áudios, faturas, saldos, cartões e recorrências em linguagem natural." />
+  <style>
+    :root {
+      --bg: #07110d;
+      --card: #0f1d17;
+      --card-2: #13251d;
+      --text: #f2fff8;
+      --muted: #b8c7bf;
+      --green: #25d366;
+      --green-2: #86efac;
+      --line: rgba(255,255,255,.12);
+      --warn: #ffd166;
+      --whatsapp: #efeae2;
+      --bubble-user: #d9fdd3;
+      --bubble-bot: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top left, rgba(37, 211, 102, .20), transparent 32%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 17, 13, .80);
+      z-index: 20;
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: -.03em; }
+    .logo {
+      width: 38px; height: 38px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--green), #0a8f48);
+      display: grid; place-items: center; color: #05250f; font-weight: 950;
+    }
+    .nav-links { display: flex; align-items: center; gap: 20px; color: var(--muted); font-size: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 13px 18px; border-radius: 999px; font-weight: 850;
+      background: var(--green); color: #05250f;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 14px 40px rgba(37, 211, 102, .22);
+    }
+    .btn.secondary { background: transparent; color: var(--text); border-color: var(--line); box-shadow: none; }
+
+    .hero {
+      display: grid; grid-template-columns: 1.05fr .95fr; align-items: center;
+      gap: 46px; padding: 72px 0 50px;
+    }
+    .tag {
+      display: inline-flex; padding: 8px 12px; border: 1px solid var(--line);
+      border-radius: 999px; color: var(--green-2); background: rgba(37, 211, 102, .08);
+      font-size: 14px; font-weight: 750;
+    }
+    h1 { font-size: clamp(42px, 7vw, 76px); line-height: .95; letter-spacing: -.075em; margin: 18px 0 20px; }
+    .lead { font-size: 20px; color: var(--muted); max-width: 650px; margin-bottom: 26px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+    .note { color: var(--muted); font-size: 14px; }
+
+    .phone {
+      background: #09140f; border: 1px solid var(--line); border-radius: 36px;
+      padding: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.38);
+    }
+    .screen {
+      background: #0b141a;
+      background-image: radial-gradient(rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 18px 18px;
+      color: #0a2515; border-radius: 26px; padding: 16px; min-height: 620px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .chat-header {
+      color: #f6fff8; display: flex; align-items: center; gap: 10px;
+      padding: 4px 2px 12px; border-bottom: 1px solid rgba(255,255,255,.10); font-weight: 850;
+    }
+    .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--green); display: grid; place-items: center; font-weight: 950; color: #05250f; }
+    .bubble { max-width: 90%; padding: 10px 12px; border-radius: 14px; font-size: 13.5px; line-height: 1.42; box-shadow: 0 1px 0 rgba(0,0,0,.08); }
+    .user { align-self: flex-end; background: var(--bubble-user); border-bottom-right-radius: 4px; }
+    .bot { align-self: flex-start; background: var(--bubble-bot); border-bottom-left-radius: 4px; }
+    .file-card { align-self: flex-end; background: #075e54; color: #fff; border-radius: 12px; padding: 12px; max-width: 86%; font-size: 13px; }
+    .file-inner { background: rgba(255,255,255,.95); color: #202124; border-radius: 8px; padding: 14px; margin-bottom: 8px; }
+    .audio { align-self: flex-end; background: #075e54; color: #fff; border-radius: 999px; padding: 12px 16px; max-width: 82%; font-size: 13px; }
+    .wave { display: inline-block; width: 160px; height: 10px; margin-left: 8px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.35) 0 3px, transparent 3px 7px); border-radius: 99px; }
+
+    .section { padding: 72px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.04; letter-spacing: -.05em; margin: 0 0 14px; }
+    .section-lead { color: var(--muted); font-size: 18px; max-width: 790px; margin-bottom: 32px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border: 1px solid var(--line); border-radius: 24px; padding: 22px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 19px; letter-spacing: -.02em; }
+    .card p, .card li { color: var(--muted); margin: 0; }
+    .card ul { margin: 10px 0 0; padding-left: 18px; }
+    .wide { grid-column: span 2; }
+
+    .examples { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .example {
+      border: 1px solid var(--line); background: var(--card); border-radius: 22px; padding: 18px;
+    }
+    .example strong { color: var(--green-2); }
+    .code { color: #e5fff0; background: rgba(0,0,0,.22); border: 1px solid var(--line); border-radius: 14px; padding: 12px; margin-top: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; white-space: pre-wrap; }
+
+    .steps { counter-reset: step; display: grid; gap: 14px; }
+    .step { display: grid; grid-template-columns: 46px 1fr; gap: 16px; align-items: start; padding: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 20px; }
+    .step::before { counter-increment: step; content: counter(step); width: 42px; height: 42px; border-radius: 14px; background: rgba(37, 211, 102, .14); color: var(--green-2); display: grid; place-items: center; font-weight: 950; }
+    .warning { border: 1px solid rgba(255, 209, 102, .35); background: rgba(255, 209, 102, .08); border-radius: 24px; padding: 22px; color: #fff3cd; }
+    .privacy { color: var(--muted); font-size: 15px; }
+    .privacy h3 { color: var(--text); margin-top: 26px; }
+    footer { padding: 40px 0; color: var(--muted); border-top: 1px solid var(--line); }
+    .footer-grid { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 44px; }
+      .grid, .examples { grid-template-columns: 1fr; }
+      .wide { grid-column: span 1; }
+      .nav-links a:not(.btn) { display: none; }
+      .screen { min-height: auto; }
+      .bubble, .file-card, .audio { max-width: 96%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Amplia Finanças"><span class="logo">A</span><span>Amplia Finanças</span></a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#privacidade">Privacidade</a>
+        <a class="btn" href="https://wa.me/5541988851444?text=Quero%20testar%20o%20Amplia%20Finan%C3%A7as" target="_blank" rel="noreferrer">Testar no WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <span class="tag">MVP em testes · WhatsApp financeiro</span>
+        <h1>Fale do seu dinheiro do jeito que você fala no WhatsApp.</h1>
+        <p class="lead">O Amplia Finanças entende mensagens, áudios e comprovantes para registrar gastos, entradas, saldos, cartões, faturas, contas mensais e análises — com respostas humanas e diretas.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/5541988851444?text=Quero%20testar%20o%20Amplia%20Finan%C3%A7as" target="_blank" rel="noreferrer">Começar teste</a>
+          <a class="btn secondary" href="#exemplos">Ver exemplos reais</a>
+        </div>
+        <p class="note">Ele não é banco, não faz Pix, não movimenta dinheiro e não substitui orientação profissional. Ele organiza o que você envia.</p>
+      </div>
+
+      <div class="phone" aria-label="Exemplo de conversa com o Amplia Finanças">
+        <div class="screen">
+          <div class="chat-header"><span class="avatar">A</span> Amplia Finanças</div>
+          <div class="file-card"><div class="file-inner"><b>Pix enviado</b><br>R$ 12,00<br><br><small>Comprovante de pagamento</small></div>comprovante.pdf</div>
+          <div class="bubble bot">Príncipe? 😏 Chegou mesmo. R$ 12,00 enviados pro Daniel. Demorou, mas a conta bateu.</div>
+          <div class="bubble user">todo mês recebo salário 850</div>
+          <div class="bubble bot">Fechado. Salário entrou como entrada mensal prevista, em R$ 850,00. Na próxima projeção, isso já ajuda o saldo a parecer menos trágico.</div>
+          <div class="bubble user">onde posso investir mais?</div>
+          <div class="bubble bot">Ainda não vou falar em investir sem base suficiente. Hoje só sustento R$ 0,00 livre para essa leitura. Quando houver gastos mensais suficientes, eu te mostro com mais segurança.</div>
+          <div class="audio">🎙️ Áudio recebido <span class="wave"></span></div>
+          <div class="bubble bot">Peguei do áudio: 4 movimentações. Parece que iFood e iPad foram os mais interessantes que o freela, né? 😏</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section">
+      <div class="container">
+        <h2>Como funciona hoje</h2>
+        <p class="section-lead">Você não precisa decorar comando. Manda como falaria com alguém. Quando faltar informação, o bot pergunta. Quando não tiver dados suficientes, ele não inventa.</p>
+        <div class="steps">
+          <div class="step"><div><strong>Você manda uma informação financeira</strong><br><span class="privacy">Texto, áudio, comprovante, PDF, saldo, cartão, fatura, conta mensal ou receita recorrente.</span></div></div>
+          <div class="step"><div><strong>O bot interpreta o contexto</strong><br><span class="privacy">Ele tenta entender se é gasto, entrada, transferência, fatura aberta, saldo, recorrência ou consulta.</span></div></div>
+          <div class="step"><div><strong>Ele registra ou responde</strong><br><span class="privacy">Confirma o que salvou, pede complemento quando precisa e entrega consultas como gastos, entradas, faturas, saldos e análises.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section">
+      <div class="container">
+        <h2>O que ele já faz</h2>
+        <p class="section-lead">A primeira versão já funciona como uma memória financeira conversável. Não é só uma lista de gastos.</p>
+        <div class="grid">
+          <div class="card"><h3>Gastos e entradas</h3><p>Registra frases como “gastei 25 no mercado” ou “recebi 300 de freela”.</p></div>
+          <div class="card"><h3>Áudios</h3><p>Extrai movimentações financeiras de áudio e transforma em registros.</p></div>
+          <div class="card"><h3>Comprovantes e PDFs</h3><p>Lê comprovantes Pix, imagens e PDFs, identificando valores e contexto quando possível.</p></div>
+          <div class="card"><h3>Saldos e bancos</h3><p>Entende “meu saldo no Inter é 62,95” e organiza bancos/carteiras informados.</p></div>
+          <div class="card"><h3>Cartões e faturas</h3><p>Cadastra cartões, limites, vencimentos, fechamento e faturas em aberto.</p></div>
+          <div class="card"><h3>Recorrências</h3><p>Registra contas e recebimentos mensais, como salário, aluguel, internet e faturas recorrentes.</p></div>
+          <div class="card"><h3>Consultas rápidas</h3><p>Responde saldo do mês, quanto ganhou, quanto gastou, saldos, cartões, faturas e histórico.</p></div>
+          <div class="card"><h3>Análises com trava</h3><p>Analisa excesso, pressão no saldo, microgastos, economia e projeções sem inventar dados.</p></div>
+          <div class="card"><h3>Personalidade</h3><p>Tem respostas mais sérias ou mais provocativas, mas a persona não altera os fatos financeiros.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="exemplos" class="section">
+      <div class="container">
+        <h2>Exemplos de uso</h2>
+        <p class="section-lead">Algumas mensagens que o bot consegue entender ou responder hoje.</p>
+        <div class="examples">
+          <div class="example"><strong>Registro simples</strong><div class="code">Você: gastei 25 no ifood
+Bot: registra o gasto e classifica como alimentação/delivery.</div></div>
+          <div class="example"><strong>Receita recorrente</strong><div class="code">Você: todo mês recebo salário 850
+Bot: salva como entrada mensal prevista.</div></div>
+          <div class="example"><strong>Fatura aberta</strong><div class="code">Você: fatura da Claro em aberto 67,90
+Bot: registra como fatura/conta aberta, sem tratar como gasto pago.</div></div>
+          <div class="example"><strong>Comprovante</strong><div class="code">Você: envia um comprovante Pix
+Bot: identifica valor, direção e pede/usa contexto para classificar.</div></div>
+          <div class="example"><strong>Áudio</strong><div class="code">Você: envia áudio com várias compras e entradas
+Bot: extrai as movimentações e registra o que entendeu.</div></div>
+          <div class="example"><strong>Análise responsável</strong><div class="code">Você: onde posso investir mais?
+Bot: só responde se houver renda e gastos suficientes. Se não houver base, ele avisa.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid">
+        <div class="card wide">
+          <h2>Para quem é</h2>
+          <p class="section-lead">Para quem quer entender melhor o próprio dinheiro sem depender de planilha perfeita ou aplicativo cheio de telas.</p>
+          <ul>
+            <li>Pessoas que registram tudo de cabeça e depois se perdem.</li>
+            <li>Quem prefere mandar mensagem, áudio ou comprovante.</li>
+            <li>Autônomos, freelancers e pequenos vendedores que recebem e gastam em vários lugares.</li>
+            <li>Quem quer consultar gastos, entradas, faturas, saldos e recorrências por conversa.</li>
+          </ul>
+        </div>
+        <div class="warning">
+          <strong>Importante</strong>
+          <p>O Amplia Finanças está em fase de MVP. Ele organiza informações enviadas por você. Não é banco, não acessa sua conta bancária automaticamente, não realiza transações e não oferece recomendação financeira profissional personalizada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacidade" class="section">
+      <div class="container">
+        <h2>Política de Privacidade simples</h2>
+        <p class="section-lead">Esta política explica, de forma simples, como o Amplia Finanças trata os dados enviados durante o uso do assistente.</p>
+        <div class="privacy">
+          <p><strong>Última atualização:</strong> 13 de maio de 2026.</p>
+          <h3>1. Quem somos</h3><p>O Amplia Finanças é um assistente financeiro em fase de testes criado para ajudar usuários a organizar informações financeiras enviadas por mensagem, áudio, imagem, comprovante ou documento. CNPJ: 66.749.971/0001-47.</p>
+          <h3>2. Quais dados podemos receber</h3><p>Podemos receber informações que você envia voluntariamente, como gastos, receitas, saldos informados, nomes de bancos/cartões, faturas, contas mensais, comprovantes, PDFs, imagens, áudios e mensagens de texto.</p>
+          <h3>3. Para que usamos esses dados</h3><p>Usamos os dados para interpretar mensagens, registrar informações financeiras, responder consultas, gerar resumos, melhorar a experiência do assistente e corrigir erros do produto.</p>
+          <h3>4. O que não fazemos</h3><p>Não somos banco, não movimentamos seu dinheiro, não realizamos Pix, não acessamos sua conta bancária automaticamente e não vendemos seus dados pessoais para terceiros.</p>
+          <h3>5. Compartilhamento com serviços técnicos</h3><p>Para funcionar, o produto pode usar serviços de infraestrutura, banco de dados, processamento de mensagens, inteligência artificial, hospedagem e envio/recebimento via WhatsApp. Esses serviços são usados apenas para operar e melhorar o assistente.</p>
+          <h3>6. Segurança</h3><p>Buscamos proteger as informações com boas práticas técnicas, mas nenhum sistema é 100% imune a falhas. Evite enviar senhas, códigos de autenticação, dados completos de cartão ou informações extremamente sensíveis.</p>
+          <h3>7. Seus direitos</h3><p>Você pode solicitar acesso, correção ou exclusão dos seus dados, quando aplicável. Para isso, entre em contato pelo e-mail de suporte informado nesta página.</p>
+          <h3>8. Dados de menores</h3><p>O produto não é destinado a crianças. Caso dados sejam enviados por engano, o responsável pode solicitar a remoção.</p>
+          <h3>9. Mudanças nesta política</h3><p>Esta política pode ser atualizada conforme o produto evoluir. A versão mais recente ficará disponível nesta página.</p>
+          <h3>10. Contato</h3><p>Para dúvidas ou solicitações sobre privacidade, entre em contato pelo e-mail: <strong>financasamplia@gmail.com</strong>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><strong>Amplia Finanças</strong><br><span>Diminuindo a distância entre viver o dinheiro e entender o dinheiro.</span><br><span>CNPJ: 66.749.971/0001-47</span></div>
+      <div><a href="#privacidade">Política de Privacidade</a> · <a href="#top">Voltar ao topo</a></div>
+    </div>
+  </footer>
+</body>
+</html>
