@@ -1,0 +1,23 @@
+# https://ampliafinancas.com.br/robots.txt
+
+User-agent: *
+Allow: /
+
+# Crawlers de IA — liberados para citação e descoberta.
+# Para bloquear algum deles, troque "Allow: /" por "Disallow: /" no bloco.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://ampliafinancas.com.br/sitemap.xml

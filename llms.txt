@@ -1,0 +1,50 @@
+# Amplia Finanças
+
+> Assistente financeiro que funciona dentro do WhatsApp. Organiza finanças pessoais
+> e de micro-empreendedores por conversa — sem app novo, sem planilha, sem formulário.
+
+Amplia Finanças é um bot de WhatsApp que registra gastos a partir de linguagem natural,
+áudio, imagem, comprovante, extrato ou fatura. Consolida contas e cartões de bancos
+diferentes em um panorama único, mostra para onde o dinheiro está indo, acompanha metas
+e simula compras antes da decisão.
+
+Idioma: português do Brasil. Público: pessoas físicas e micro-empreendedores (MEI) no Brasil.
+Status: MVP em testes.
+CNPJ: 66.749.971/0001-47
+
+## O que ele faz
+
+- **Registro por conversa**: uma frase como "45 no mercado" vira um lançamento categorizado, sem formulário e sem categoria manual.
+- **Áudio e comprovante**: aceita mensagem de voz, foto de comprovante, extrato em PDF/CSV e fatura de cartão.
+- **Panorama consolidado**: junta contas e cartões de bancos diferentes e mostra o saldo real.
+- **Para onde foi o dinheiro**: quebra os gastos por categoria em vez de só listar transações.
+- **Cartão sem susto**: acompanha a fatura ao longo do mês em vez de revelar o total no fechamento.
+- **Metas ativas**: a meta monitora as compras em vez de ficar decorativa.
+- **Simulação de compra**: responde "posso comprar?" com conta feita, não com achismo.
+- **Projeção do mês**: estima como o mês termina antes de ele terminar.
+- **Personas**: o tom da resposta é escolhido pelo usuário — Sério, Julius ou Debochado.
+
+## Diferenciais
+
+- Vive dentro do WhatsApp, sem exigir instalação de aplicativo ou criação de senha.
+- Entrada em linguagem natural em português, incluindo áudio e imagem.
+- Personalidade configurável, em vez de respostas neutras de software financeiro.
+- Feito para a realidade brasileira: múltiplos bancos, cartão parcelado, Pix, MEI.
+
+## Links
+
+- [Site](https://ampliafinancas.com.br/): página principal, com demonstração interativa da conversa.
+- [Começar no WhatsApp](https://wa.me/5541988851444): abre a conversa com o assistente.
+- [Como funciona](https://ampliafinancas.com.br/#tour): passo a passo do funcionamento.
+- [Demonstração](https://ampliafinancas.com.br/#demo): simulação da conversa na própria página.
+- [Recursos](https://ampliafinancas.com.br/#recursos): lista de funcionalidades.
+- [Política de Privacidade](https://ampliafinancas.com.br/#privacidade)
+- [Termos de Uso](https://ampliafinancas.com.br/#termos)
+- [Exclusão de dados](https://ampliafinancas.com.br/#exclusao-dados)
+
+## Notas
+
+- O Amplia Finanças organiza e explica informações financeiras. Não é instituição
+  financeira, não executa pagamentos ou transferências, e não oferece recomendação
+  de investimento.
+- Contato e suporte acontecem pelo próprio WhatsApp.
