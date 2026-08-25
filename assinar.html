@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assinar — Amplia Finanças</title>
+<meta name="description" content="R$ 14,90 por mês, travado para sempre para os 15 primeiros assinantes. 14 dias grátis, sem cartão. Cartão pela Stripe, Pix no plano anual.">
+<link rel="canonical" href="https://ampliafinancas.com.br/assinar">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#030805">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amplia Finanças">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://ampliafinancas.com.br/assinar">
+<meta property="og:title" content="Assinar — Amplia Finanças">
+<meta property="og:description" content="R$ 14,90 por mês, travado para sempre para os 15 primeiros. 14 dias grátis, sem cartão.">
+<meta property="og:image" content="https://ampliafinancas.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#030805;
+  --surface:rgba(255,255,255,.055);
+  --line:rgba(255,255,255,.13);
+  --line-soft:rgba(255,255,255,.08);
+  --ink:#f5fff9; --ink-2:rgba(245,255,249,.7); --muted:rgba(245,255,249,.5);
+  --green:#25d366; --mint:#8cffbf; --glow:#05f08b;
+  --display:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --shadow:0 30px 90px rgba(0,0,0,.42);
+  --nav-h:66px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(130% 55% at 50% -12%, rgba(37,211,102,.12), transparent 62%),
+    linear-gradient(180deg,#050b08 0%,#030705 46%,#040a07 100%);
+  background-attachment:fixed;
+  color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;overflow-x:hidden;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.02;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--green);color:#04170d}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-family:var(--body);font-weight:900;font-size:.95rem;letter-spacing:-.01em;padding:13px 24px;min-height:46px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.16);position:relative;z-index:1;isolation:isolate;overflow:hidden;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+.btn-primary{background:linear-gradient(135deg,#9dffc7,#25d366 58%,#14af59);color:#04170d;box-shadow:0 20px 48px rgba(37,211,102,.27)}
+.btn-primary::after{content:"";position:absolute;inset:-80% -30%;z-index:-1;background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);transform:translateX(-120%) rotate(18deg);transition:transform .7s var(--ease)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 26px 62px rgba(37,211,102,.34)}
+.btn-primary:hover::after{transform:translateX(120%) rotate(18deg)}
+.btn-ghost{background:rgba(255,255,255,.055);color:var(--ink);font-weight:700}
+.btn-ghost:hover{border-color:rgba(140,255,191,.34);color:var(--mint)}
+.btn-sm{padding:10px 19px;font-size:.87rem;min-height:0}
+.btn[disabled]{opacity:.42;cursor:not-allowed;box-shadow:none;transform:none}
+.btn[disabled]::after{display:none}
+.nav{position:sticky;top:0;z-index:60;background:rgba(3,8,5,.82);backdrop-filter:blur(22px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h)}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.04rem;letter-spacing:-.035em}
+.brand img{width:32px;height:32px;border-radius:10px;box-shadow:0 4px 18px rgba(37,211,102,.28)}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a:not(.btn){color:var(--muted);text-decoration:none;font-size:.91rem;font-weight:500;transition:color .15s}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+.nav-links a[aria-current]{color:var(--ink)}
+@media(max-width:820px){.nav-links a:not(.btn){display:none}}
+.hero{padding:70px 0 30px;text-align:center;position:relative}
+.hero::after{content:"";position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:min(760px,92vw);height:290px;border-radius:50%;background:radial-gradient(closest-side,rgba(37,211,102,.085),transparent);filter:blur(6px);pointer-events:none;z-index:-1}
+.badge{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:800;letter-spacing:.02em;color:var(--mint);background:rgba(37,211,102,.075);border:1px solid rgba(140,255,191,.24);padding:7px 15px;border-radius:999px;margin-bottom:22px}
+.badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--glow);box-shadow:0 0 22px rgba(5,240,139,.9);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 9px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.5rem,6.3vw,4.3rem);line-height:1;letter-spacing:-.064em;max-width:20ch;margin:0 auto 18px;text-wrap:balance;background:linear-gradient(100deg,#fff 0%,#eafff3 22%,#a7ffcf 52%,#7dffb6 72%,#fff 96%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{color:var(--ink-2);max-width:40rem;margin:0 auto;font-size:clamp(1.02rem,1.5vw,1.18rem);line-height:1.5}
+.planos{padding:34px 0 78px}
+.toggle{display:flex;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);border-radius:999px;padding:5px;max-width:430px;margin:0 auto 26px;backdrop-filter:blur(18px)}
+.toggle button{flex:1;border:1px solid transparent;background:transparent;cursor:pointer;border-radius:999px;padding:11px 8px;font-family:var(--body);font-size:.93rem;font-weight:700;color:var(--ink-2);transition:all .2s var(--ease);line-height:1.25}
+.toggle button[aria-pressed="true"]{background:linear-gradient(135deg,#9dffc7,#25d366 60%,#14af59);color:#04170d;font-weight:900}
+.toggle .eco{display:block;font-family:var(--mono);font-size:.66rem;font-weight:600;opacity:.75}
+.card{max-width:470px;margin:0 auto;border-radius:30px;padding:32px 28px 28px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
+.selo{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--mint);background:rgba(37,211,102,.1);border:1px solid rgba(140,255,191,.26);padding:5px 12px;border-radius:999px}
+.plano-nome{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.04em;margin:16px 0 3px}
+.plano-sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.precos{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.de{font-family:var(--mono);font-size:1.02rem;color:var(--muted);text-decoration:line-through}
+.por{font-family:var(--display);font-weight:800;font-size:3.1rem;letter-spacing:-.06em;line-height:1;background:linear-gradient(100deg,#fff,#a7ffcf 60%,#7dffb6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.por .cifra{font-size:1.3rem;vertical-align:.72em;margin-right:3px}
+.periodo{color:var(--muted);font-size:.95rem}
+.equivale{font-family:var(--mono);font-size:.79rem;color:var(--muted);margin-top:8px}
+.travado{font-size:.94rem;color:var(--ink-2);margin-top:15px}
+.travado b{color:var(--mint);font-weight:700}
+.vagas{margin-top:20px;padding-top:17px;border-top:1px solid var(--line-soft);font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.track{display:block;height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:8px}
+.fill{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#14af59,#25d366)}
+.itens{list-style:none;margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:9px}
+.itens li{display:flex;gap:11px;align-items:flex-start;font-size:.94rem;color:var(--ink-2)}
+.itens li::before{content:"✓";color:var(--mint);font-weight:800;flex:none;font-size:.9rem;line-height:1.6}
+.itens li b{color:var(--ink);font-weight:600}
+.campo{margin-top:24px;padding-top:22px;border-top:1px solid var(--line-soft)}
+.campo label{display:block;font-size:.93rem;font-weight:700;margin-bottom:5px}
+.campo .dica{font-size:.83rem;color:var(--muted);margin-bottom:11px}
+.campo input{width:100%;padding:14px 16px;font-family:var(--mono);font-size:1.04rem;color:var(--ink);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;transition:border-color .2s}
+.campo input::placeholder{color:rgba(245,255,249,.32)}
+.campo input:focus{outline:none;border-color:rgba(140,255,191,.55)}
+.erro{color:#ffb4a2;font-size:.84rem;margin-top:8px;min-height:1.2em}
+.acoes{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.acoes .btn{width:100%}
+.aviso{font-size:.83rem;color:var(--muted);text-align:center;margin-top:11px}
+.rodape-card{font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;color:var(--muted);text-align:center;margin-top:22px}
+section{padding:78px 0;border-top:1px solid var(--line-soft)}
+.sec-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:13px}
+.sec-kicker::before{content:"";width:22px;height:2px;background:var(--mint);border-radius:2px}
+h2.big{font-family:var(--display);font-weight:800;font-size:clamp(1.85rem,3.9vw,2.7rem);line-height:1.05;letter-spacing:-.052em;margin-bottom:14px;max-width:22ch}
+.sec-sub{color:var(--ink-2);max-width:38rem;margin-bottom:38px}
+.passos{list-style:none;counter-reset:p;display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
+.passos li{counter-increment:p;border-radius:22px;padding:24px 22px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px)}
+.passos li::before{content:counter(p,decimal-leading-zero);display:grid;place-items:center;width:38px;height:38px;border-radius:12px;margin-bottom:15px;font-family:var(--mono);font-size:.74rem;color:var(--mint);background:rgba(37,211,102,.14);border:1px solid rgba(140,255,191,.3)}
+.passos b{display:block;font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:-.02em;margin-bottom:5px}
+.passos p{font-size:.9rem;color:var(--muted)}
+code{font-family:var(--mono);font-size:.86em;background:rgba(37,211,102,.13);border:1px solid rgba(140,255,191,.22);color:var(--mint);padding:2px 7px;border-radius:7px;white-space:nowrap}
+.faq details{border-top:1px solid var(--line-soft)}
+.faq details:last-child{border-bottom:1px solid var(--line-soft)}
+.faq summary{cursor:pointer;padding:19px 0;font-weight:700;font-size:.97rem;list-style:none;display:flex;justify-content:space-between;gap:18px;align-items:center;color:var(--ink-2);transition:color .15s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--ink)}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--mint);flex:none}
+.faq details[open] summary{color:var(--ink)}
+.faq details[open] summary::after{content:"–"}
+.faq .resp{padding:0 0 22px;font-size:.92rem;color:var(--muted);max-width:52rem}
+.faq .resp p+p{margin-top:9px}
+.honesty{margin-top:34px;display:flex;gap:12px;align-items:flex-start;font-size:.87rem;color:var(--muted);max-width:46rem;padding:16px 18px;border-radius:0 20px 20px 0;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);border-left:2px solid rgba(140,255,191,.5);backdrop-filter:blur(18px)}
+.honesty strong{color:var(--ink)}
+.cta-final{position:relative;overflow:hidden;text-align:center;border-radius:34px;padding:58px 28px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
+.cta-final::before{content:"";position:absolute;inset:auto -20% -70%;height:130%;background:radial-gradient(50% 50% at 50% 100%,rgba(37,211,102,.13),transparent 70%);pointer-events:none}
+.cta-final h2{margin:0 auto 14px;position:relative}
+.cta-final p{color:var(--ink-2);max-width:34rem;margin:0 auto 30px;position:relative}
+footer{border-top:1px solid var(--line-soft);padding:50px 0 44px}
+.foot-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.foot-brand{max-width:23rem}
+.foot-brand .brand{margin-bottom:12px}
+.foot-brand p{font-size:.85rem;color:var(--muted)}
+.foot-links{display:flex;flex-direction:column;gap:9px;font-size:.88rem}
+.foot-links a{color:var(--muted);text-decoration:none;transition:color .15s}
+.foot-links a:hover{color:var(--mint)}
+.copy{font-size:.78rem;color:var(--muted);margin-top:28px;font-family:var(--mono)}
+@media(max-width:940px){section{padding:58px 0}.hero{padding:50px 0 20px}h1{font-size:clamp(2.05rem,8.6vw,2.9rem);letter-spacing:-.05em;max-width:none}h2.big{font-size:clamp(1.7rem,6.4vw,2.1rem);max-width:none}.passos{grid-template-columns:1fr}.card{padding:28px 22px 24px}.por{font-size:2.7rem}}
+@media(max-width:620px){.wrap{padding:0 18px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body id="top">
+<nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="32" height="32">Amplia Finanças</a><div class="nav-links"><a href="/#tour">Como funciona</a><a href="/#demo">Testar</a><a href="/#recursos">Recursos</a><a href="/assinar" aria-current="page">Assinar</a><a class="btn btn-primary btn-sm" href="#planos">Ver o plano</a></div></div></nav>
+<header class="hero"><div class="wrap"><span class="badge"><span class="pulse"></span>Preço de fundador · 15 primeiros assinantes</span><h1>Não é desconto. É preço travado.</h1><p class="hero-sub">Os quinze primeiros travam R$ 14,90 por mês e nunca mais veem esse valor mudar. Depois deles, vale a tabela de R$ 24,90. Antes de decidir, você tem 14 dias grátis, sem cartão.</p></div></header>
+<section class="planos" id="planos" style="border-top:none"><div class="wrap"><div class="toggle" role="group" aria-label="Período de cobrança"><button type="button" data-ciclo="mensal" aria-pressed="true">Mensal</button><button type="button" data-ciclo="anual" aria-pressed="false">Anual<span class="eco">2 meses grátis</span></button></div><div class="card"><span class="selo">Plano fundador</span><div class="plano-nome">Amplia completo</div><p class="plano-sub">Tudo que o bot faz, sem limite de mensagens.</p><div class="precos"><span class="de" id="p-de">R$ 24,90</span><span class="por" id="p-por"><span class="cifra">R$</span>14,90</span><span class="periodo" id="p-per">/mês</span></div><p class="equivale" id="p-eq" hidden></p><p class="travado">Preço <b>travado para sempre</b> enquanto a assinatura seguir ativa. Sem reajuste-surpresa no sexto mês.</p><div class="vagas" id="vagas" hidden><span id="vagas-txt"></span><span class="track"><i class="fill" id="vagas-barra" style="width:0"></i></span></div><ul class="itens"><li>Registro por <b>texto, áudio, comprovante ou PDF</b></li><li><b>Panorama multibanco</b> — saldo real somado, reserva à parte</li><li><b>Para onde o dinheiro foi</b> — por categoria e mês a mês</li><li><b>Cartões e faturas</b> — limite, fechamento, parcelas futuras</li><li><b>Simulação de compra</b> — “posso comprar?” com a conta feita</li><li><b>Metas e projeção do mês</b>, avisando antes do estouro</li><li>As três personas: Sério, Julius e Debochado</li></ul><div class="campo"><label for="whats">Seu número de WhatsApp</label><p class="dica">O mesmo que você usa pra falar com o Amplia — é por ele que a liberação chega.</p><input id="whats" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(41) 99999-9999" aria-describedby="erro"><p class="erro" id="erro" role="status"></p><div class="acoes"><button type="button" class="btn btn-primary" id="btn-cartao">Assinar no cartão</button><button type="button" class="btn btn-ghost" id="btn-pix">Pagar no Pix</button></div><p class="aviso" id="aviso"></p></div><p class="rodape-card">Cancela pelo próprio WhatsApp · Sem multa · Sem ligação</p></div></div></section>
+<section id="pagamento"><div class="wrap"><div class="sec-kicker">Depois do pagamento</div><h2 class="big">Como a liberação chega até você</h2><p class="sec-sub">Sem painel, sem login, sem e-mail de confirmação perdido no spam. Tudo acontece na mesma conversa.</p><ol class="passos"><li><b>Você paga</b><p>Cartão pela Stripe, Pix pelo Asaas. Os dados do cartão nunca passam pelo Amplia — quem processa é a Stripe.</p></li><li><b>No cartão, é automático</b><p>A confirmação chega sozinha e o Amplia te manda a mensagem de liberação. Você não precisa fazer nada.</p></li><li><b>No Pix, você avisa</b><p>Pagou, manda <code>confirmar pagamento amplia</code> no WhatsApp. Ele confere e libera na hora.</p></li></ol></div></section>
+<section id="duvidas"><div class="wrap"><div class="sec-kicker">Antes de assinar</div><h2 class="big">O que costuma pegar</h2><p class="sec-sub">As perguntas que geram arrependimento depois — respondidas antes.</p><div class="faq"><details><summary>Posso cancelar quando quiser?</summary><div class="resp"><p>Pode. Manda <code>cancelar amplia</code> no WhatsApp e acabou — sem formulário, sem atendente, sem retenção. O acesso continua até o fim do período que você já pagou.</p></div></details><details><summary>E se eu cancelar o anual no meio do ano?</summary><div class="resp"><p>Reembolso proporcional aos meses não usados. Não seguramos dinheiro de mês que não foi prestado.</p></div></details><details><summary>O anual renova sozinho?</summary><div class="resp"><p>Renova, e o Amplia avisa 7 dias antes pelo WhatsApp. Você não vai descobrir a cobrança pela fatura.</p></div></details><details><summary>Por que o Pix só aparece no plano anual?</summary><div class="resp"><p>Porque Pix não se cobra sozinho todo mês. No mensal, você teria que pagar na mão doze vezes e perderia o acesso na primeira vez que esquecesse.</p><p>Cartão cobra sozinho; Pix resolve o ano de uma vez. Preferimos dizer isso a vender um jeito que falha no segundo mês.</p></div></details><details><summary>O preço de fundador trava mesmo?</summary><div class="resp"><p>Trava enquanto a assinatura estiver ativa. Se você cancelar e voltar depois, volta pelo preço de tabela da época. É a única letra miúda que existe aqui.</p></div></details><details><summary>Preciso de cartão pra testar?</summary><div class="resp"><p>Não. São 14 dias completos sem cadastrar cartão nenhum. Se não gostar, é só parar de usar — nada é cobrado.</p></div></details><details><summary>E o termômetro financeiro?</summary><div class="resp"><p>Continua gratuito, para sempre, com ou sem assinatura. Ele não entra no pacote pago.</p></div></details><details><summary>O que acontece com meus dados?</summary><div class="resp"><p>Ficam no banco de dados do Amplia e são usados só para responder você. Não vendemos nem compartilhamos com terceiros. Para apagar tudo, veja <a href="/#exclusao-dados" style="color:var(--mint)">exclusão de dados</a>.</p></div></details></div><p class="honesty"><span>✓</span><span><strong>Sem promessa exagerada:</strong> o Amplia não é banco, não faz Pix, não movimenta dinheiro e não acessa sua conta bancária. Está em MVP e pode errar leitura de áudio ou comprovante — confira registros importantes.</span></p></div></section>
+<section><div class="wrap"><div class="cta-final"><h2 class="big" style="margin-left:auto;margin-right:auto">Ainda não testou?</h2><p>Então não assine agora. Use os 14 dias primeiro — a assinatura continua aqui quando fizer sentido.</p><a class="btn btn-primary" href="https://wa.me/5541988851444?text=Oi%2C%20Amplia.%20Quero%20come%C3%A7ar%20meu%20controle%20financeiro%20pelo%20WhatsApp.%20Me%20mostra%20o%20menu%20inicial%20e%20me%20guia%20pelo%20primeiro%20cadastro." target="_blank" rel="noopener">Começar os 14 dias grátis →</a></div></div></section>
+<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="32" height="32">Amplia Finanças</a><p>Diminuindo a distância entre viver o dinheiro e entender o dinheiro.<br>CNPJ: 66.749.971/0001-47 · financasamplia@gmail.com</p></div><div class="foot-links"><a href="/#tour">Como funciona</a><a href="/#demo">Testar a demo</a><a href="/#recursos">Recursos</a><a href="/#privacidade">Política de Privacidade</a><a href="/#termos">Termos de Uso</a><a href="/#exclusao-dados">Exclusão de dados</a></div></div><p class="copy">© Amplia Finanças · MVP em testes</p></div></footer>
+<script>
+var CONFIG = {
+  precos: {
+    mensal: { tabela:"R$ 24,90", valor:"14,90", periodo:"/mês", equivale:null },
+    anual:  { tabela:"R$ 249",   valor:"149",   periodo:"/ano", equivale:"Sai a R$ 12,42 por mês — paga 10, leva 12" }
+  },
+  links: {
+    cartaoMensal: "COLE_AQUI_STRIPE_MENSAL",
+    cartaoAnual:  "COLE_AQUI_STRIPE_ANUAL",
+    pixAnual:     "COLE_AQUI_ASAAS_PIX_ANUAL"
+  },
+  contador: { mostrar:false, total:15, restantes:15 }
+};
+(function(){
+  var $ = function(s){ return document.querySelector(s); };
+  var ciclo = "mensal";
+  function pronto(l){ return typeof l === "string" && l.indexOf("COLE_AQUI") !== 0 && l.length > 8; }
+  function render(){
+    var p = CONFIG.precos[ciclo];
+    $("#p-de").textContent = p.tabela;
+    $("#p-por").innerHTML = '<span class="cifra">R$</span>' + p.valor;
+    $("#p-per").textContent = p.periodo;
+    var eq = $("#p-eq");
+    eq.hidden = !p.equivale;
+    if (p.equivale) eq.textContent = p.equivale;
+    var linkCartao = ciclo === "anual" ? CONFIG.links.cartaoAnual : CONFIG.links.cartaoMensal;
+    var okCartao = pronto(linkCartao);
+    $("#btn-cartao").disabled = !okCartao;
+    $("#btn-cartao").textContent = okCartao ? "Assinar no cartão" : "Cartão indisponível no momento";
+    var pixOk = ciclo === "anual" && pronto(CONFIG.links.pixAnual);
+    $("#btn-pix").hidden = ciclo !== "anual";
+    $("#btn-pix").disabled = !pixOk;
+    $("#aviso").textContent = ciclo === "anual" ? (pixOk ? "No Pix, avise pelo WhatsApp depois de pagar." : "Pix ainda não disponível.") : "No mensal, só cartão — Pix não cobra sozinho todo mês.";
+    var c = CONFIG.contador;
+    $("#vagas").hidden = !c.mostrar;
+    if (c.mostrar){
+      $("#vagas-txt").textContent = c.restantes + " de " + c.total + " vagas de fundador restantes";
+      $("#vagas-barra").style.width = Math.round((c.total - c.restantes) / c.total * 100) + "%";
+    }
+  }
+  document.querySelectorAll(".toggle button").forEach(function(b){
+    b.addEventListener("click", function(){
+      ciclo = b.dataset.ciclo;
+      document.querySelectorAll(".toggle button").forEach(function(x){ x.setAttribute("aria-pressed", String(x === b)); });
+      render();
+    });
+  });
+  var campo = $("#whats");
+  campo.addEventListener("input", function(){
+    var d = campo.value.replace(/\D/g, "").slice(0, 11), v = d;
+    if (d.length > 2) v = "(" + d.slice(0,2) + ") " + d.slice(2);
+    if (d.length > 6) { var corte = d.length === 11 ? 7 : 6; v = "(" + d.slice(0,2) + ") " + d.slice(2, corte) + "-" + d.slice(corte); }
+    campo.value = v; $("#erro").textContent = "";
+  });
+  function numero(){
+    var d = campo.value.replace(/\D/g, "");
+    if (d.length < 10 || d.length > 11){ $("#erro").textContent = "Falta o DDD ou algum dígito. Escreva os 11 números."; campo.focus(); return null; }
+    return "55" + d;
+  }
+  function ir(link){ var wa = numero(); if (!wa) return; window.location.href = link + (link.indexOf("?") > -1 ? "&" : "?") + "client_reference_id=" + wa; }
+  $("#btn-cartao").addEventListener("click", function(){ ir(ciclo === "anual" ? CONFIG.links.cartaoAnual : CONFIG.links.cartaoMensal); });
+  $("#btn-pix").addEventListener("click", function(){ ir(CONFIG.links.pixAnual); });
+  render();
+})();
+</script>
+</body>
+</html>
