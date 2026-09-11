@@ -30,9 +30,6 @@
 
 <style>
 :root{
-.itens li{display:flex;gap:11px;align-items:baseline;font-size:.94rem;color:var(--ink-2);line-height:1.5}
-.itens li>span{flex:1;min-width:0}
-.itens li::before{content:"✓";color:var(--mint);font-weight:800;flex:none;font-size:.9rem}
   --bg:#030805;
   --surface:rgba(255,255,255,.055);
   --line:rgba(255,255,255,.13);
@@ -46,6 +43,9 @@
   --shadow:0 30px 90px rgba(0,0,0,.42);
   --nav-h:66px;
 }
+.itens li{display:flex;gap:11px;align-items:baseline;font-size:.94rem;color:var(--ink-2);line-height:1.5}
+.itens li>span{flex:1;min-width:0}
+.itens li::before{content:"✓";color:var(--mint);font-weight:800;flex:none;font-size:.9rem}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -177,12 +177,9 @@ footer{border-top:1px solid var(--line-soft);padding:50px 0 44px}
 <section><div class="wrap"><div class="cta-final"><h2 class="big" style="margin-left:auto;margin-right:auto">Ainda não testou?</h2><p>Então não assine agora. Use os 7 dias primeiro — a assinatura continua aqui quando fizer sentido.</p><a class="btn btn-primary" href="https://wa.me/5541988851444?text=Oi%2C%20Amplia.%20Quero%20come%C3%A7ar%20meu%20controle%20financeiro%20pelo%20WhatsApp.%20Me%20mostra%20o%20menu%20inicial%20e%20me%20guia%20pelo%20primeiro%20cadastro." target="_blank" rel="noopener">Começar os 7 dias grátis →</a></div></div></section>
 <footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="32" height="32">Amplia Finanças</a><p>Diminuindo a distância entre viver o dinheiro e entender o dinheiro.<br>CNPJ: 66.749.971/0001-47 · financasamplia@gmail.com</p></div><div class="foot-links"><a href="/#tour">Como funciona</a><a href="/#demo">Testar a demo</a><a href="/#recursos">Recursos</a><a href="/#privacidade">Política de Privacidade</a><a href="/#termos">Termos de Uso</a><a href="/#exclusao-dados">Exclusão de dados</a></div></div><p class="copy">© Amplia Finanças · MVP em testes</p></div></footer>
 <script>
-.itens li{display:flex;gap:11px;align-items:baseline;font-size:.94rem;color:var(--ink-2);line-height:1.5}
-.itens li>span{flex:1;min-width:0}
-.itens li::before{content:"✓";color:var(--mint);font-weight:800;flex:none;font-size:.9rem}
 var CONFIG = {
   precos: {
-    mensal: { tabela:null, valor:"24,90", periodo:"/mês", equivale:null },
+    mensal: { tabela:"", valor:"24,90", periodo:"/mês", equivale:"" },
         anual:  { tabela:"R$ 298,80", valor:"199", periodo:"/ano", equivale:"Sai a R$ 16,58 por mês — três meses grátis" },
   },
   links: {
