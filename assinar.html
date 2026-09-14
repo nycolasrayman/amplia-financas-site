@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assinar — Amplia Finanças</title>
-<meta name="description" content="R$ 24,90 por mês, travado para sempre para os 15 primeiros assinantes. 7 dias grátis, sem cartão. Cartão pela Stripe, Pix no plano anual.">
+<title>Plano Fundador — Amplia Finanças</title>
+<meta name="description" content="Plano Fundador do Amplia Finanças para os 50 primeiros assinantes: R$ 24,90/mês com 7 dias de teste antes da primeira cobrança, ou R$ 249,90/ano com 16,4% de economia e sem trial anual.">
 <link rel="canonical" href="https://ampliafinancas.com.br/assinar">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#030805">
@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="Amplia Finanças">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://ampliafinancas.com.br/assinar">
-<meta property="og:title" content="Assinar — Amplia Finanças">
-<meta property="og:description" content="R$ 24,90 por mês, travado para sempre para os 15 primeiros. 7 dias grátis, sem cartão.">
+<meta property="og:title" content="Plano Fundador — Amplia Finanças">
+<meta property="og:description" content="50 primeiros assinantes: R$ 24,90/mês com 7 dias de trial, ou R$ 249,90/ano com 16,4% de economia.">
 <meta property="og:image" content="https://ampliafinancas.com.br/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -43,9 +43,6 @@
   --shadow:0 30px 90px rgba(0,0,0,.42);
   --nav-h:66px;
 }
-.itens li{display:flex;gap:11px;align-items:baseline;font-size:.94rem;color:var(--ink-2);line-height:1.5}
-.itens li>span{flex:1;min-width:0}
-.itens li::before{content:"✓";color:var(--mint);font-weight:800;flex:none;font-size:.9rem}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -90,13 +87,15 @@ img{max-width:100%;display:block}
 .badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--glow);box-shadow:0 0 22px rgba(5,240,139,.9);animation:pulse 2.2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 9px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.5rem,6.3vw,4.3rem);line-height:1;letter-spacing:-.064em;max-width:20ch;margin:0 auto 18px;text-wrap:balance;background:linear-gradient(100deg,#fff 0%,#eafff3 22%,#a7ffcf 52%,#7dffb6 72%,#fff 96%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{color:var(--ink-2);max-width:40rem;margin:0 auto;font-size:clamp(1.02rem,1.5vw,1.18rem);line-height:1.5}
+.hero-sub{color:var(--ink-2);max-width:43rem;margin:0 auto;font-size:clamp(1.02rem,1.5vw,1.18rem);line-height:1.5}
+.founder-note{max-width:650px;margin:18px auto 0;padding:13px 16px;border:1px solid rgba(140,255,191,.2);background:rgba(37,211,102,.055);border-radius:16px;color:var(--ink-2);font-size:.91rem}
+.founder-note b{color:var(--mint)}
 .planos{padding:34px 0 78px}
 .toggle{display:flex;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);border-radius:999px;padding:5px;max-width:430px;margin:0 auto 26px;backdrop-filter:blur(18px)}
 .toggle button{flex:1;border:1px solid transparent;background:transparent;cursor:pointer;border-radius:999px;padding:11px 8px;font-family:var(--body);font-size:.93rem;font-weight:700;color:var(--ink-2);transition:all .2s var(--ease);line-height:1.25}
 .toggle button[aria-pressed="true"]{background:linear-gradient(135deg,#9dffc7,#25d366 60%,#14af59);color:#04170d;font-weight:900}
 .toggle .eco{display:block;font-family:var(--mono);font-size:.66rem;font-weight:600;opacity:.75}
-.card{max-width:470px;margin:0 auto;border-radius:30px;padding:32px 28px 28px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
+.card{max-width:500px;margin:0 auto;border-radius:30px;padding:32px 28px 28px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
 .selo{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--mint);background:rgba(37,211,102,.1);border:1px solid rgba(140,255,191,.26);padding:5px 12px;border-radius:999px}
 .plano-nome{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.04em;margin:16px 0 3px}
 .plano-sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
@@ -108,12 +107,11 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2.5rem,6.3vw,4.3re
 .equivale{font-family:var(--mono);font-size:.79rem;color:var(--muted);margin-top:8px}
 .travado{font-size:.94rem;color:var(--ink-2);margin-top:15px}
 .travado b{color:var(--mint);font-weight:700}
-.vagas{margin-top:20px;padding-top:17px;border-top:1px solid var(--line-soft);font-family:var(--mono);font-size:.76rem;color:var(--muted)}
-.track{display:block;height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:8px}
-.fill{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#14af59,#25d366)}
+.vagas{margin-top:20px;padding:17px 15px;border:1px solid rgba(140,255,191,.18);background:rgba(37,211,102,.045);border-radius:14px;font-family:var(--mono);font-size:.76rem;color:var(--ink-2)}
+.vagas b{color:var(--mint)}
 .itens{list-style:none;margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:9px}
 .itens li{display:flex;gap:11px;align-items:baseline;font-size:.94rem;color:var(--ink-2);line-height:1.5}
-.itens li>span{flex:1}
+.itens li>span{flex:1;min-width:0}
 .itens li::before{content:"✓";color:var(--mint);font-weight:800;flex:none;font-size:.9rem;line-height:1.6}
 .itens li b{color:var(--ink);font-weight:600}
 .campo{margin-top:24px;padding-top:22px;border-top:1px solid var(--line-soft)}
@@ -125,13 +123,13 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2.5rem,6.3vw,4.3re
 .erro{color:#ffb4a2;font-size:.84rem;margin-top:8px;min-height:1.2em}
 .acoes{display:flex;flex-direction:column;gap:10px;margin-top:14px}
 .acoes .btn{width:100%}
-.aviso{font-size:.83rem;color:var(--muted);text-align:center;margin-top:11px}
+.aviso{font-size:.83rem;color:var(--muted);text-align:center;margin-top:11px;line-height:1.5}
 .rodape-card{font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;color:var(--muted);text-align:center;margin-top:22px}
 section{padding:78px 0;border-top:1px solid var(--line-soft)}
 .sec-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:13px}
 .sec-kicker::before{content:"";width:22px;height:2px;background:var(--mint);border-radius:2px}
 h2.big{font-family:var(--display);font-weight:800;font-size:clamp(1.85rem,3.9vw,2.7rem);line-height:1.05;letter-spacing:-.052em;margin-bottom:14px;max-width:22ch}
-.sec-sub{color:var(--ink-2);max-width:38rem;margin-bottom:38px}
+.sec-sub{color:var(--ink-2);max-width:42rem;margin-bottom:38px}
 .passos{list-style:none;counter-reset:p;display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
 .passos li{counter-increment:p;border-radius:22px;padding:24px 22px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px)}
 .passos li::before{content:counter(p,decimal-leading-zero);display:grid;place-items:center;width:38px;height:38px;border-radius:12px;margin-bottom:15px;font-family:var(--mono);font-size:.74rem;color:var(--mint);background:rgba(37,211,102,.14);border:1px solid rgba(140,255,191,.3)}
@@ -153,7 +151,7 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(37,211,102,.13);bor
 .cta-final{position:relative;overflow:hidden;text-align:center;border-radius:34px;padding:58px 28px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
 .cta-final::before{content:"";position:absolute;inset:auto -20% -70%;height:130%;background:radial-gradient(50% 50% at 50% 100%,rgba(37,211,102,.13),transparent 70%);pointer-events:none}
 .cta-final h2{margin:0 auto 14px;position:relative}
-.cta-final p{color:var(--ink-2);max-width:34rem;margin:0 auto 30px;position:relative}
+.cta-final p{color:var(--ink-2);max-width:37rem;margin:0 auto 30px;position:relative}
 footer{border-top:1px solid var(--line-soft);padding:50px 0 44px}
 .foot-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
 .foot-brand{max-width:23rem}
@@ -169,30 +167,82 @@ footer{border-top:1px solid var(--line-soft);padding:50px 0 44px}
 </style>
 </head>
 <body id="top">
-<nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="32" height="32">Amplia Finanças</a><div class="nav-links"><a href="/#tour">Como funciona</a><a href="/#demo">Testar</a><a href="/#recursos">Recursos</a><a href="/assinar" aria-current="page">Assinar</a><a class="btn btn-primary btn-sm" href="#planos">Ver o plano</a></div></div></nav>
-<header class="hero"><div class="wrap"><span class="badge"><span class="pulse"></span>Assinatura única · sem pegadinha de reajuste</span><h1>Um preço só. Sem letra miúda.</h1><p class="hero-sub">R$ 24,90 por mês, ou R$ 199,90 no ano — paga nove meses, leva doze. Antes de decidir, você tem 7 dias grátis, sem cartão.</p></div></header>
-<section class="planos" id="planos" style="border-top:none"><div class="wrap"><div class="toggle" role="group" aria-label="Período de cobrança"><button type="button" data-ciclo="mensal" aria-pressed="true">Mensal</button><button type="button" data-ciclo="anual" aria-pressed="false">Anual<span class="eco">3 meses grátis</span></button></div><div class="card"><span class="selo">Plano único</span><div class="plano-nome">Amplia completo</div><p class="plano-sub">Tudo que o bot faz, sem limite de mensagens.</p><div class="precos"><span class="de" id="p-de">R$ 24,90</span><span class="por" id="p-por"><span class="cifra">R$</span>24,90</span><span class="periodo" id="p-per">/mês</span></div><p class="equivale" id="p-eq" hidden></p><p class="travado">Sem fidelidade e <b>sem reajuste-surpresa</b>. Cancela quando quiser, direto pelo WhatsApp.</p><div class="vagas" id="vagas" hidden><span id="vagas-txt"></span><span class="track"><i class="fill" id="vagas-barra" style="width:0"></i></span></div><ul class="itens"><li><span>Registro por <b>texto, áudio, comprovante ou PDF</b></span></li><li><span><b>Panorama multibanco</b> — saldo real somado, reserva à parte</span></li><li><span><b>Para onde o dinheiro foi</b> — por categoria e mês a mês</span></li><li><span><b>Cartões e faturas</b> — limite, fechamento, parcelas futuras</span></li><li><span><b>Simulação de compra</b> — “posso comprar?” com a conta feita</span></li><li><span><b>Metas e projeção do mês</b>, avisando antes do estouro</span></li><li><span>As três personas: Sério, Julius e Debochado</span></li></ul><div class="campo"><label for="whats">Seu número de WhatsApp</label><p class="dica">O mesmo que você usa pra falar com o Amplia — é por ele que a liberação chega.</p><input id="whats" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(41) 99999-9999" aria-describedby="erro"><p class="erro" id="erro" role="status"></p><div class="acoes"><button type="button" class="btn btn-primary" id="btn-cartao">Assinar no cartão</button><button type="button" class="btn btn-ghost" id="btn-pix">Pagar no Pix</button></div><p class="aviso" id="aviso"></p></div><p class="rodape-card">Cancela pelo próprio WhatsApp · Sem multa · Sem ligação</p></div></div></section>
-<section id="pagamento"><div class="wrap"><div class="sec-kicker">Depois do pagamento</div><h2 class="big">Como a liberação chega até você</h2><p class="sec-sub">Sem painel, sem login, sem e-mail de confirmação perdido no spam. Tudo acontece na mesma conversa.</p><ol class="passos"><li><b>Você paga</b><p>Cartão pela Stripe. Os dados do cartão nunca passam pelo Amplia — quem processa é a Stripe.</p></li><li><b>A confirmação é automática</b><p>Assim que a Stripe confirma, o Amplia te manda a mensagem de liberação. Você não precisa fazer nada.</p></li><li><b>Começa na hora</b><p>Manda a primeira mensagem e o bot já responde com acesso completo.</p></li></ol></div></section>
-<section id="duvidas"><div class="wrap"><div class="sec-kicker">Antes de assinar</div><h2 class="big">O que costuma pegar</h2><p class="sec-sub">As perguntas que geram arrependimento depois — respondidas antes.</p><div class="faq"><details><summary>Posso cancelar quando quiser?</summary><div class="resp"><p>Pode. Manda <code>cancelar amplia</code> no WhatsApp e acabou — sem formulário, sem atendente, sem retenção. O acesso continua até o fim do período que você já pagou.</p></div></details><details><summary>E se eu cancelar o anual no meio do ano?</summary><div class="resp"><p>Reembolso proporcional aos meses não usados. Não seguramos dinheiro de mês que não foi prestado.</p></div></details><details><summary>O anual renova sozinho?</summary><div class="resp"><p>Renova, e o Amplia avisa 7 dias antes pelo WhatsApp. Você não vai descobrir a cobrança pela fatura.</p></div></details><details><summary>Por que o Pix só aparece no plano anual?</summary><div class="resp"><p>Porque Pix não se cobra sozinho todo mês. No mensal, você teria que pagar na mão doze vezes e perderia o acesso na primeira vez que esquecesse.</p><p>Cartão cobra sozinho; Pix resolve o ano de uma vez. Preferimos dizer isso a vender um jeito que falha no segundo mês.</p></div></details><details><summary>O preço de fundador trava mesmo?</summary><div class="resp"><p>Trava enquanto a assinatura estiver ativa. Se você cancelar e voltar depois, volta pelo preço de tabela da época. É a única letra miúda que existe aqui.</p></div></details><details><summary>Preciso de cartão pra testar?</summary><div class="resp"><p>Não. São 7 dias completos sem cadastrar cartão nenhum. Se não gostar, é só parar de usar — nada é cobrado.</p></div></details><details><summary>E o termômetro financeiro?</summary><div class="resp"><p>Continua gratuito, para sempre, com ou sem assinatura. Ele não entra no pacote pago.</p></div></details><details><summary>O que acontece com meus dados?</summary><div class="resp"><p>Ficam no banco de dados do Amplia e são usados só para responder você. Não vendemos nem compartilhamos com terceiros. Para apagar tudo, veja <a href="/#exclusao-dados" style="color:var(--mint)">exclusão de dados</a>.</p></div></details></div><p class="honesty"><span>✓</span><span><strong>Sem promessa exagerada:</strong> o Amplia não é banco, não faz Pix, não movimenta dinheiro e não acessa sua conta bancária. Está em MVP e pode errar leitura de áudio ou comprovante — confira registros importantes.</span></p></div></section>
-<section><div class="wrap"><div class="cta-final"><h2 class="big" style="margin-left:auto;margin-right:auto">Ainda não testou?</h2><p>Então não assine agora. Use os 7 dias primeiro — a assinatura continua aqui quando fizer sentido.</p><a class="btn btn-primary" href="https://wa.me/5541988851444?text=Oi%2C%20Amplia.%20Quero%20come%C3%A7ar%20meu%20controle%20financeiro%20pelo%20WhatsApp.%20Me%20mostra%20o%20menu%20inicial%20e%20me%20guia%20pelo%20primeiro%20cadastro." target="_blank" rel="noopener">Começar os 7 dias grátis →</a></div></div></section>
-<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="32" height="32">Amplia Finanças</a><p>Diminuindo a distância entre viver o dinheiro e entender o dinheiro.<br>CNPJ: 66.749.971/0001-47 · financasamplia@gmail.com</p></div><div class="foot-links"><a href="/#tour">Como funciona</a><a href="/#demo">Testar a demo</a><a href="/#recursos">Recursos</a><a href="/#privacidade">Política de Privacidade</a><a href="/#termos">Termos de Uso</a><a href="/#exclusao-dados">Exclusão de dados</a></div></div><p class="copy">© Amplia Finanças · MVP em testes</p></div></footer>
+<nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="32" height="32">Amplia Finanças</a><div class="nav-links"><a href="/#tour">Como funciona</a><a href="/#demo">Demo</a><a href="/#recursos">Recursos</a><a href="/assinar" aria-current="page">Assinar</a><a class="btn btn-primary btn-sm" href="#planos">Plano Fundador</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="badge"><span class="pulse"></span>Plano Fundador · limitado aos 50 primeiros</span>
+  <h1>Entre no Amplia como Fundador.</h1>
+  <p class="hero-sub">Os 50 primeiros assinantes garantem o preço fundador: <b>R$ 24,90/mês</b> no mensal ou <b>R$ 249,90/ano</b> no anual. O mensal começa com <b>7 dias de trial antes da primeira cobrança</b>; o anual não tem trial.</p>
+  <p class="founder-note"><b>Mensalista Fundador:</b> R$ 24,90/mês enquanto a assinatura permanecer ativa. No anual, você economiza R$ 48,90 — <b>16,4%</b> em relação a 12 mensalidades.</p>
+</div></header>
+
+<section class="planos" id="planos" style="border-top:none"><div class="wrap">
+  <div class="toggle" role="group" aria-label="Período de cobrança">
+    <button type="button" data-ciclo="mensal" aria-pressed="true">Mensal<span class="eco">7 dias de trial</span></button>
+    <button type="button" data-ciclo="anual" aria-pressed="false">Anual<span class="eco">economize 16,4%</span></button>
+  </div>
+  <div class="card">
+    <span class="selo">Plano Fundador</span>
+    <div class="plano-nome">Amplia Fundador</div>
+    <p class="plano-sub" id="plano-sub">Acesso completo ao MVP, com o preço reservado aos primeiros apoiadores.</p>
+    <div class="precos"><span class="de" id="p-de" hidden></span><span class="por" id="p-por"><span class="cifra">R$</span>24,90</span><span class="periodo" id="p-per">/mês</span></div>
+    <p class="equivale" id="p-eq">7 dias de trial antes da primeira cobrança.</p>
+    <p class="travado" id="travado">Como <b>Mensalista Fundador</b>, seu preço de R$ 24,90/mês fica preservado enquanto a assinatura permanecer ativa.</p>
+    <div class="vagas"><b>50 primeiros assinantes.</b> Depois dessa primeira turma, os novos planos e preços poderão ser diferentes.</div>
+    <ul class="itens">
+      <li><span>Registro por <b>texto, áudio, comprovante ou PDF</b></span></li>
+      <li><span><b>Panorama multibanco</b> — saldo real somado, reserva à parte</span></li>
+      <li><span><b>Para onde o dinheiro foi</b> — por categoria e mês a mês</span></li>
+      <li><span><b>Cartões e faturas</b> — limite, fechamento, parcelas futuras</span></li>
+      <li><span><b>Simulação de compra</b> — “posso comprar?” com a conta feita</span></li>
+      <li><span><b>Metas e projeção do mês</b>, avisando antes do estouro</span></li>
+      <li><span>As três personas: Sério, Julius e Debochado</span></li>
+    </ul>
+    <div class="campo">
+      <label for="whats">Seu número de WhatsApp</label>
+      <p class="dica">Use o mesmo número que vai conversar com o Amplia. Ele identifica sua assinatura por aqui.</p>
+      <input id="whats" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(41) 99999-9999" aria-describedby="erro">
+      <p class="erro" id="erro" role="status"></p>
+      <div class="acoes"><button type="button" class="btn btn-primary" id="btn-cartao">Começar 7 dias de trial</button></div>
+      <p class="aviso" id="aviso">Mensal: você cadastra o cartão na Stripe e tem 7 dias de trial antes da primeira cobrança. Cancele durante o trial para não iniciar a mensalidade.</p>
+    </div>
+    <p class="rodape-card" id="rodape-card">Plano mensal · 7 dias de trial · depois R$ 24,90/mês</p>
+  </div>
+</div></section>
+
+<section id="pagamento"><div class="wrap"><div class="sec-kicker">Depois de escolher</div><h2 class="big">Da assinatura para a conversa</h2><p class="sec-sub">A assinatura acontece pela Stripe e o produto continua onde deve estar: no WhatsApp.</p><ol class="passos"><li><b>Você escolhe mensal ou anual</b><p>O mensal tem 7 dias de trial antes da primeira cobrança. O anual cobra R$ 249,90 na assinatura e não inclui trial.</p></li><li><b>A Stripe processa</b><p>Os dados do cartão não passam pelo Amplia. A Stripe processa o pagamento e envia a confirmação.</p></li><li><b>O Amplia libera o acesso</b><p>Depois da confirmação, você continua no WhatsApp com o acesso do Plano Fundador.</p></li></ol></div></section>
+
+<section id="duvidas"><div class="wrap"><div class="sec-kicker">Antes de assinar</div><h2 class="big">O que precisa ficar claro</h2><p class="sec-sub">Mensal e anual têm o mesmo Amplia Fundador. O que muda é a forma de cobrança e o trial.</p><div class="faq">
+  <details><summary>Quem entra como Fundador?</summary><div class="resp"><p>A oferta é reservada aos <b>50 primeiros assinantes</b> do Amplia. Essa primeira turma garante as condições do Plano Fundador enquanto mantiver a assinatura ativa.</p></div></details>
+  <details><summary>Como funciona o trial de 7 dias?</summary><div class="resp"><p>O trial é exclusivo do <b>Plano Fundador mensal</b>. Você segue para o checkout mensal da Stripe, cadastra o cartão e tem 7 dias antes da primeira cobrança de R$ 24,90. Se cancelar dentro do trial, a mensalidade não começa.</p></div></details>
+  <details><summary>O anual também tem trial?</summary><div class="resp"><p>Não. O anual é uma alternativa para quem já decidiu ficar: custa <b>R$ 249,90/ano</b> e é cobrado na contratação. Comparado a 12 mensalidades de R$ 24,90 — R$ 298,80 — você economiza <b>R$ 48,90, ou 16,4%</b>.</p></div></details>
+  <details><summary>O preço do Mensalista Fundador trava mesmo?</summary><div class="resp"><p>Sim. O valor de <b>R$ 24,90/mês</b> permanece enquanto a assinatura mensal de fundador estiver ativa. Se cancelar e voltar futuramente, a nova contratação poderá seguir os planos e preços vigentes naquele momento.</p></div></details>
+  <details><summary>E o preço anual de Fundador?</summary><div class="resp"><p>O Plano Fundador anual custa <b>R$ 249,90/ano</b>. Enquanto a assinatura anual de fundador permanecer ativa, essa é a condição reservada à primeira turma.</p></div></details>
+  <details><summary>Posso cancelar quando quiser?</summary><div class="resp"><p>Pode. No mensal, cancelar durante os 7 dias de trial evita a primeira mensalidade. Depois da cobrança, o acesso segue conforme o período contratado.</p></div></details>
+  <details><summary>O anual renova sozinho?</summary><div class="resp"><p>Se a assinatura anual estiver configurada como recorrente na Stripe, ela renova no ciclo anual. O Amplia deve avisar antes da renovação para você não ser surpreendido.</p></div></details>
+  <details><summary>E o termômetro financeiro?</summary><div class="resp"><p>Continua gratuito, para sempre, com ou sem assinatura. Ele não entra no pacote pago.</p></div></details>
+  <details><summary>O que acontece com meus dados?</summary><div class="resp"><p>Ficam no banco de dados do Amplia e são usados para operar e responder o assistente. Para solicitar exclusão, veja <a href="/#exclusao-dados" style="color:var(--mint)">exclusão de dados</a>.</p></div></details>
+</div><p class="honesty"><span>✓</span><span><strong>Sem promessa exagerada:</strong> o Amplia não é banco, não faz Pix, não movimenta dinheiro e não acessa sua conta bancária automaticamente. Está em MVP e pode errar leitura de áudio ou comprovante — confira registros importantes.</span></p></div></section>
+
+<section><div class="wrap"><div class="cta-final"><h2 class="big" style="margin-left:auto;margin-right:auto">Quer experimentar antes de pagar?</h2><p>Escolha o Plano Fundador mensal. Você vai ao checkout da Stripe e começa com 7 dias de trial antes da primeira cobrança de R$ 24,90. Se preferir economizar 16,4% e já fechar o ano, selecione o anual por R$ 249,90 — sem trial.</p><a class="btn btn-primary" href="#planos">Escolher meu Plano Fundador →</a></div></div></section>
+
+<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="32" height="32">Amplia Finanças</a><p>Diminuindo a distância entre viver o dinheiro e entender o dinheiro.<br>CNPJ: 66.749.971/0001-47 · financasamplia@gmail.com</p></div><div class="foot-links"><a href="/#tour">Como funciona</a><a href="/#demo">Testar a demo</a><a href="/#recursos">Recursos</a><a href="/assinar">Plano Fundador</a><a href="/#privacidade">Política de Privacidade</a><a href="/#termos">Termos de Uso</a><a href="/#exclusao-dados">Exclusão de dados</a></div></div><p class="copy">© Amplia Finanças · MVP em testes</p></div></footer>
+
 <script>
 var CONFIG = {
   precos: {
-    mensal: { tabela:"", valor:"24,90", periodo:"/mês", equivale:"" },
-        anual:  { tabela:"R$ 298,80", valor:"199,90", periodo:"/ano", equivale:"Sai a R$ 16,58 por mês — três meses grátis" },
+    mensal: { tabela:"", valor:"24,90", periodo:"/mês", equivale:"7 dias de trial antes da primeira cobrança." },
+    anual:  { tabela:"R$ 298,80", valor:"249,90", periodo:"/ano", equivale:"Economize R$ 48,90 (16,4%) — equivalente a R$ 20,83/mês." }
   },
   links: {
     cartaoMensal: "https://buy.stripe.com/eVqbJ02Qb2mO7yg2XCgUM01",
-    cartaoAnual:  "https://buy.stripe.com/4gM00iduP8Lc7yg1TygUM03",
-    pixAnual:     ""
-  },
-  contador: { mostrar:false, total:15, restantes:15 }
+    cartaoAnual:  "https://buy.stripe.com/28EeVc1M78Lc7ygdCggUM04"
+  }
 };
 (function(){
   var $ = function(s){ return document.querySelector(s); };
   var ciclo = "mensal";
-  function pronto(l){ return typeof l === "string" && l.indexOf("COLE_AQUI") !== 0 && l.length > 8; }
+  function pronto(l){ return typeof l === "string" && l.length > 8; }
   function render(){
     var p = CONFIG.precos[ciclo];
     var de = $("#p-de");
@@ -203,20 +253,23 @@ var CONFIG = {
     var eq = $("#p-eq");
     eq.hidden = !p.equivale;
     if (p.equivale) eq.textContent = p.equivale;
-    var linkCartao = ciclo === "anual" ? CONFIG.links.cartaoAnual : CONFIG.links.cartaoMensal;
-    var okCartao = pronto(linkCartao);
-    $("#btn-cartao").disabled = !okCartao;
-    $("#btn-cartao").textContent = okCartao ? "Assinar no cartão" : "Cartão indisponível no momento";
-    var pixOk = ciclo === "anual" && pronto(CONFIG.links.pixAnual);
-    $("#btn-pix").hidden = true;
-    $("#btn-pix").disabled = !pixOk;
-    $("#aviso").textContent = ciclo === "anual" ? (pixOk ? "No Pix, avise pelo WhatsApp depois de pagar." : "Pix ainda não disponível.") : "No mensal, só cartão — Pix não cobra sozinho todo mês.";
-    var c = CONFIG.contador;
-    $("#vagas").hidden = !c.mostrar;
-    if (c.mostrar){
-      $("#vagas-txt").textContent = c.restantes + " de " + c.total + " vagas de fundador restantes";
-      $("#vagas-barra").style.width = Math.round((c.total - c.restantes) / c.total * 100) + "%";
-    }
+
+    var mensal = ciclo === "mensal";
+    var linkCartao = mensal ? CONFIG.links.cartaoMensal : CONFIG.links.cartaoAnual;
+    var botao = $("#btn-cartao");
+    botao.disabled = !pronto(linkCartao);
+    botao.textContent = pronto(linkCartao) ? (mensal ? "Começar 7 dias de trial" : "Assinar o anual por R$ 249,90") : "Checkout indisponível no momento";
+
+    $("#plano-sub").textContent = mensal ? "Plano Fundador mensal com 7 dias de trial antes da primeira cobrança." : "Plano Fundador anual para quem prefere fechar o ano e economizar 16,4%.";
+    $("#travado").innerHTML = mensal
+      ? 'Como <b>Mensalista Fundador</b>, seu preço de R$ 24,90/mês fica preservado enquanto a assinatura permanecer ativa.'
+      : 'Plano Fundador anual por <b>R$ 249,90/ano</b>, condição reservada à primeira turma enquanto a assinatura permanecer ativa.';
+    $("#aviso").textContent = mensal
+      ? "Mensal: você cadastra o cartão na Stripe e tem 7 dias de trial antes da primeira cobrança. Cancele durante o trial para não iniciar a mensalidade."
+      : "Anual: não há trial. A cobrança de R$ 249,90 acontece na contratação; isso economiza 16,4% frente a 12 mensalidades.";
+    $("#rodape-card").textContent = mensal
+      ? "Plano mensal · 7 dias de trial · depois R$ 24,90/mês"
+      : "Plano anual · R$ 249,90/ano · sem trial · economia de 16,4%";
   }
   document.querySelectorAll(".toggle button").forEach(function(b){
     b.addEventListener("click", function(){
@@ -234,12 +287,15 @@ var CONFIG = {
   });
   function numero(){
     var d = campo.value.replace(/\D/g, "");
-    if (d.length < 10 || d.length > 11){ $("#erro").textContent = "Falta o DDD ou algum dígito. Escreva os 11 números."; campo.focus(); return null; }
+    if (d.length < 10 || d.length > 11){ $("#erro").textContent = "Falta o DDD ou algum dígito. Escreva os 10 ou 11 números com DDD."; campo.focus(); return null; }
     return "55" + d;
   }
-  function ir(link){ var wa = numero(); if (!wa) return; window.location.href = link + (link.indexOf("?") > -1 ? "&" : "?") + "client_reference_id=" + wa; }
+  function ir(link){
+    var wa = numero();
+    if (!wa) return;
+    window.location.href = link + (link.indexOf("?") > -1 ? "&" : "?") + "client_reference_id=" + wa;
+  }
   $("#btn-cartao").addEventListener("click", function(){ ir(ciclo === "anual" ? CONFIG.links.cartaoAnual : CONFIG.links.cartaoMensal); });
-  $("#btn-pix").addEventListener("click", function(){ ir(CONFIG.links.pixAnual); });
   render();
 })();
 </script>
