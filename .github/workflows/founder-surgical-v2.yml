@@ -1,0 +1,146 @@
+name: Surgical founder plan update
+
+on:
+  push:
+    branches:
+      - founder-plan-surgical-v2
+
+permissions:
+  contents: write
+
+jobs:
+  patch-site:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: founder-plan-surgical-v2
+          fetch-depth: 0
+
+      - name: Apply minimal text/link changes
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          def replace_once(text, old, new, label):
+              if old not in text:
+                  raise SystemExit(f"Missing expected text for {label}")
+              return text.replace(old, new, 1)
+
+          def regex_once(text, pattern, replacement, label):
+              out, n = re.subn(pattern, replacement, text, count=1)
+              if n != 1:
+                  raise SystemExit(f"Expected exactly 1 match for {label}, got {n}")
+              return out
+
+          def regex_all_expected(text, pattern, replacement, expected, label):
+              out, n = re.subn(pattern, replacement, text)
+              if n != expected:
+                  raise SystemExit(f"Expected {expected} matches for {label}, got {n}")
+              return out
+
+          # ---------- homepage: preserve everything, change only commercial navigation/CTAs ----------
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          s = replace_once(
+              s,
+              '<a href="/assinar">Assinar</a>',
+              '<a href="/assinar">Plano Fundador</a>',
+              'nav plan label'
+          )
+
+          s = regex_once(
+              s,
+              r'<a class="btn btn-primary btn-sm" href="https://wa\.me/[^"]+" target="_blank" rel="noopener">Testar no WhatsApp</a>',
+              '<a class="btn btn-primary btn-sm" href="/assinar">Assinar · 7 dias grátis</a>',
+              'nav CTA'
+          )
+
+          s = regex_once(
+              s,
+              r'<a class="btn btn-primary" href="https://wa\.me/[^"]+" target="_blank" rel="noopener">Começar no WhatsApp →</a>',
+              '<a class="btn btn-primary" href="/assinar">Conhecer Plano Fundador →</a>',
+              'hero CTA'
+          )
+
+          s = regex_all_expected(
+              s,
+              r'<a class="btn btn-primary" href="https://wa\.me/[^"]+" target="_blank" rel="noopener">Abrir no WhatsApp →</a>',
+              '<a class="btn btn-primary" href="/assinar">Ver Plano Fundador →</a>',
+              2,
+              'secondary commercial CTAs'
+          )
+
+          marker = '    </div>\n    <div class="trust">'
+          founder_note = '''    </div>\n    <p style="max-width:44rem;margin:-18px auto 30px;color:var(--ink-2);font-size:.9rem"><strong style="color:var(--mint)">Plano Fundador:</strong> primeiros 50 assinantes · R$ 24,90/mês com 7 dias de trial antes da primeira cobrança · R$ 249,90/ano sem trial.</p>\n    <div class="trust">'''
+          s = replace_once(s, marker, founder_note, 'founder note below hero CTAs')
+
+          p.write_text(s, encoding='utf-8')
+
+          # ---------- subscription page: preserve layout/content, only update offer details ----------
+          p = Path('assinar.html')
+          s = p.read_text(encoding='utf-8')
+
+          replacements = [
+              ('R$ 24,90 por mês, travado para sempre para os 15 primeiros assinantes. 7 dias grátis, sem cartão. Cartão pela Stripe, Pix no plano anual.',
+               'Plano Fundador para os 50 primeiros assinantes: R$ 24,90/mês com 7 dias de trial antes da primeira cobrança, ou R$ 249,90/ano sem trial. Pagamento pela Stripe.'),
+              ('R$ 24,90 por mês, travado para sempre para os 15 primeiros. 7 dias grátis, sem cartão.',
+               'Plano Fundador para os 50 primeiros: R$ 24,90/mês com 7 dias de trial, ou R$ 249,90/ano sem trial.'),
+              ('Assinatura única · sem pegadinha de reajuste', 'Plano Fundador · primeiros 50 assinantes'),
+              ('Um preço só. Sem letra miúda.', 'Preço de Fundador para os 50 primeiros.'),
+              ('R$ 24,90 por mês, ou R$ 199,90 no ano — paga nove meses, leva doze. Antes de decidir, você tem 7 dias grátis, sem cartão.',
+               'R$ 24,90 por mês no Plano Fundador mensal, com 7 dias de trial antes da primeira cobrança. Ou R$ 249,90 no ano, sem trial — economia de R$ 48,90 (16,4%) frente a 12 mensalidades.'),
+              ('<button type="button" data-ciclo="mensal" aria-pressed="true">Mensal</button>',
+               '<button type="button" data-ciclo="mensal" aria-pressed="true">Mensal<span class="eco">7 dias de trial</span></button>'),
+              ('Anual<span class="eco">3 meses grátis</span>', 'Anual<span class="eco">economize 16,4%</span>'),
+              ('<span class="selo">Plano único</span>', '<span class="selo">Plano Fundador</span>'),
+              ('<div class="plano-nome">Amplia completo</div>', '<div class="plano-nome">Amplia Fundador</div>'),
+              ('<p class="plano-sub">Tudo que o bot faz, sem limite de mensagens.</p>', '<p class="plano-sub">Acesso completo ao MVP nas condições reservadas aos primeiros apoiadores.</p>'),
+              ('<p class="travado">Sem fidelidade e <b>sem reajuste-surpresa</b>. Cancela quando quiser, direto pelo WhatsApp.</p>',
+               '<p class="travado">Como <b>Mensalista Fundador</b>, o valor de R$ 24,90/mês fica preservado enquanto a assinatura permanecer ativa.</p><p class="vagas" style="display:block"><b>Oferta limitada aos 50 primeiros assinantes.</b> Depois dessa primeira turma, novos clientes poderão encontrar outros planos e preços.</p>'),
+              ('<details><summary>Preciso de cartão pra testar?</summary><div class="resp"><p>Não. São 7 dias completos sem cadastrar cartão nenhum. Se não gostar, é só parar de usar — nada é cobrado.</p></div></details>',
+               '<details><summary>Como funciona o trial de 7 dias?</summary><div class="resp"><p>O trial é exclusivo do Plano Fundador mensal. Você segue para o checkout mensal da Stripe, cadastra o cartão e a primeira cobrança de R$ 24,90 só acontece depois dos 7 dias. Se cancelar durante o trial, a mensalidade não começa. O plano anual não tem trial.</p></div></details>'),
+              ('<section><div class="wrap"><div class="cta-final"><h2 class="big" style="margin-left:auto;margin-right:auto">Ainda não testou?</h2><p>Então não assine agora. Use os 7 dias primeiro — a assinatura continua aqui quando fizer sentido.</p><a class="btn btn-primary" href="https://wa.me/5541988851444?text=Oi%2C%20Amplia.%20Quero%20come%C3%A7ar%20meu%20controle%20financeiro%20pelo%20WhatsApp.%20Me%20mostra%20o%20menu%20inicial%20e%20me%20guia%20pelo%20primeiro%20cadastro." target="_blank" rel="noopener">Começar os 7 dias grátis →</a></div></div></section>',
+               '<section><div class="wrap"><div class="cta-final"><h2 class="big" style="margin-left:auto;margin-right:auto">Quer experimentar antes da primeira cobrança?</h2><p>Escolha o Plano Fundador mensal: são 7 dias de trial antes da primeira cobrança de R$ 24,90. Se preferir fechar o ano, o anual custa R$ 249,90, economiza 16,4% e não inclui trial.</p><a class="btn btn-primary" href="#planos">Escolher Plano Fundador →</a></div></div></section>'),
+              ('anual:  { tabela:"R$ 298,80", valor:"199,90", periodo:"/ano", equivale:"Sai a R$ 16,58 por mês — três meses grátis" },',
+               'anual:  { tabela:"R$ 298,80", valor:"249,90", periodo:"/ano", equivale:"Economize R$ 48,90 (16,4%) — equivalente a R$ 20,83 por mês" },'),
+              ('cartaoAnual:  "https://buy.stripe.com/4gM00iduP8Lc7yg1TygUM03",',
+               'cartaoAnual:  "https://buy.stripe.com/28EeVc1M78Lc7ygdCggUM04",'),
+              ('contador: { mostrar:false, total:15, restantes:15 }',
+               'contador: { mostrar:false, total:50, restantes:50 }'),
+              ('$("#btn-cartao").textContent = okCartao ? "Assinar no cartão" : "Cartão indisponível no momento";',
+               '$("#btn-cartao").textContent = okCartao ? (ciclo === "mensal" ? "Começar 7 dias de trial" : "Assinar anual por R$ 249,90") : "Cartão indisponível no momento";'),
+              ('$("#aviso").textContent = ciclo === "anual" ? (pixOk ? "No Pix, avise pelo WhatsApp depois de pagar." : "Pix ainda não disponível.") : "No mensal, só cartão — Pix não cobra sozinho todo mês.";',
+               '$("#aviso").textContent = ciclo === "anual" ? "Plano anual: cobrança de R$ 249,90 na contratação e sem trial." : "Plano mensal: 7 dias de trial antes da primeira cobrança de R$ 24,90.";')
+          ]
+
+          for i, (old, new) in enumerate(replacements, 1):
+              s = replace_once(s, old, new, f'assinar replacement {i}')
+
+          # Explicitly update all remaining founder-count references, without touching unrelated numbers.
+          s = s.replace('15 primeiros assinantes', '50 primeiros assinantes')
+          s = s.replace('15 primeiros', '50 primeiros')
+
+          p.write_text(s, encoding='utf-8')
+
+          # Cloudflare Pages: guarantee the clean /assinar route rewrites to the existing file.
+          redirects = Path('_redirects')
+          existing = redirects.read_text(encoding='utf-8') if redirects.exists() else ''
+          rule = '/assinar /assinar.html 200'
+          if rule not in existing.splitlines():
+              redirects.write_text((existing.rstrip() + '\n' if existing.strip() else '') + rule + '\n', encoding='utf-8')
+
+          # Remove this one-shot workflow so it cannot run again.
+          Path('.github/workflows/founder-surgical-v2.yml').unlink()
+
+      - name: Commit surgical changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assinar.html _redirects .github/workflows/founder-surgical-v2.yml
+          git diff --cached --check
+          git commit -m "Update Founder offer without changing site structure"
+          git push origin HEAD:founder-plan-surgical-v2
