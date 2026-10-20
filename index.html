@@ -120,25 +120,6 @@
 }
 </script>
 
-<!-- ============ GOOGLE ANALYTICS 4 ============ -->
-<!-- TROCAR: substitua G-XXXXXXXXXX pelo seu ID de métrica (Admin > Fluxos de dados) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<!-- ============ MICROSOFT CLARITY ============ -->
-<!-- TROCAR: substitua SEU_ID_CLARITY pelo Project ID em clarity.microsoft.com -->
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "SEU_ID_CLARITY");
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -932,69 +913,12 @@ h1{
         <a href="#demo">Testar a demo</a>
         <a href="#recursos">Recursos</a>
         <a href="/assinar">Assinar</a>
-        <a href="#privacidade">Política de Privacidade</a>
-        <a href="#termos">Termos de Uso</a>
-        <a href="#exclusao-dados">Exclusão de dados</a>
+        <a href="/privacidade">Política de Privacidade</a>
+        <a href="/termos">Termos de Uso</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/cancelamento">Cancelamento e reembolso</a>
+        <a href="/exclusao-dados">Exclusão de dados</a>
       </div>
-    </div>
-
-    <div class="legal">
-      <details id="privacidade">
-        <summary>Política de Privacidade simples</summary>
-        <div class="legal-body">
-          <p>Esta política explica, de forma simples, como o Amplia Finanças trata os dados enviados durante o uso do assistente. <strong>Última atualização:</strong> 13 de maio de 2026.</p>
-          <h3>1. Quem somos</h3>
-          <p>O Amplia Finanças é um assistente financeiro em fase de testes criado para ajudar usuários a organizar informações financeiras enviadas por mensagem, áudio, imagem, comprovante ou documento. CNPJ: 66.749.971/0001-47.</p>
-          <h3>2. Quais dados podemos receber</h3>
-          <p>Podemos receber informações que você envia voluntariamente, como gastos, receitas, saldos informados, nomes de bancos/cartões, faturas, contas mensais, comprovantes, PDFs, imagens, áudios e mensagens de texto.</p>
-          <h3>3. Para que usamos esses dados</h3>
-          <p>Usamos os dados para interpretar mensagens, registrar informações financeiras, responder consultas, gerar resumos, melhorar a experiência do assistente e corrigir erros do produto.</p>
-          <h3>4. O que não fazemos</h3>
-          <p>Não somos banco, não movimentamos seu dinheiro, não realizamos Pix, não acessamos sua conta bancária automaticamente e não vendemos seus dados pessoais para terceiros.</p>
-          <h3>5. Compartilhamento com serviços técnicos</h3>
-          <p>Para funcionar, o produto pode usar serviços de infraestrutura, banco de dados, processamento de mensagens, inteligência artificial, hospedagem e envio/recebimento via WhatsApp. Esses serviços são usados apenas para operar e melhorar o assistente.</p>
-          <h3>6. Segurança</h3>
-          <p>Buscamos proteger as informações com boas práticas técnicas, mas nenhum sistema é 100% imune a falhas. Evite enviar senhas, códigos de autenticação, dados completos de cartão ou informações extremamente sensíveis.</p>
-          <h3>7. Seus direitos</h3>
-          <p>Você pode solicitar acesso, correção ou exclusão dos seus dados, quando aplicável. Para isso, entre em contato pelo e-mail de suporte informado nesta página.</p>
-          <h3>8. Dados de menores</h3>
-          <p>O produto não é destinado a crianças. Caso dados sejam enviados por engano, o responsável pode solicitar a remoção.</p>
-          <h3>9. Mudanças nesta política</h3>
-          <p>Esta política pode ser atualizada conforme o produto evoluir. A versão mais recente ficará disponível nesta página.</p>
-          <h3>10. Contato</h3>
-          <p>Para dúvidas ou solicitações sobre privacidade, entre em contato pelo e-mail: <strong>suporte@ampliafinancas.com.br</strong>.</p>
-        </div>
-      </details>
-      <details id="termos">
-        <summary>Termos de Uso simples</summary>
-        <div class="legal-body">
-          <p>Ao usar o Amplia Finanças, você concorda com estas condições básicas de uso.</p>
-          <h3>1. Uso do serviço</h3>
-          <p>O Amplia Finanças é um assistente em fase de testes para organizar informações financeiras enviadas voluntariamente pelo usuário por mensagem, áudio, imagem, comprovante ou documento.</p>
-          <h3>2. Limitações</h3>
-          <p>O serviço não é banco, não realiza transações financeiras, não faz Pix, não acessa sua conta bancária automaticamente e não substitui orientação financeira, contábil, jurídica ou profissional.</p>
-          <h3>3. Responsabilidade do usuário</h3>
-          <p>Você é responsável pelas informações que envia e pelas decisões tomadas com base nas respostas do assistente. Evite enviar senhas, códigos de autenticação, dados completos de cartão ou informações extremamente sensíveis.</p>
-          <h3>4. Fase de testes</h3>
-          <p>Como o produto está em MVP, podem ocorrer erros de interpretação, classificação, leitura de comprovantes ou cálculo. Sempre confira informações importantes antes de tomar decisões.</p>
-          <h3>5. Contato</h3>
-          <p>Para dúvidas sobre o uso do serviço, entre em contato pelo e-mail: <strong>suporte@ampliafinancas.com.br</strong>.</p>
-        </div>
-      </details>
-      <details id="exclusao-dados">
-        <summary>Exclusão de dados</summary>
-        <div class="legal-body">
-          <p>Você pode solicitar a exclusão dos seus dados vinculados ao Amplia Finanças.</p>
-          <h3>Como solicitar</h3>
-          <p>Envie um e-mail para <strong>suporte@ampliafinancas.com.br</strong> com o assunto <strong>“Exclusão de dados — Amplia Finanças”</strong>.</p>
-          <h3>O que informar</h3>
-          <p>Inclua o número de WhatsApp usado no atendimento e, se possível, uma breve confirmação de que deseja apagar os dados associados ao uso do assistente.</p>
-          <h3>O que será excluído</h3>
-          <p>Quando aplicável, serão removidos dados enviados voluntariamente durante o uso do assistente, como mensagens financeiras registradas, comprovantes processados, histórico de interações e dados associados ao perfil financeiro criado no MVP.</p>
-          <h3>Prazo</h3>
-          <p>A solicitação será analisada e processada em prazo razoável, respeitando obrigações legais, técnicas e de segurança que possam exigir retenção temporária de algumas informações.</p>
-        </div>
-      </details>
     </div>
     <p class="copy">© Amplia Finanças · MVP em testes</p>
   </div>
