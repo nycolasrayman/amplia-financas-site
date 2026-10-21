@@ -10,8 +10,6 @@ e simula compras antes da decisão.
 
 Idioma: português do Brasil. Público: pessoas físicas e micro-empreendedores (MEI) no Brasil.
 Status: MVP em testes.
-CNPJ: 66.749.971/0001-47
-
 ## O que ele faz
 
 - **Registro por conversa**: uma frase como "45 no mercado" vira um lançamento categorizado, sem formulário e sem categoria manual.
